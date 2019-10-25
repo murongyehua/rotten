@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.murongyehua.rotten.dao.mapper.RottenCaseDao">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenCase">
+    <id column="urid" jdbcType="VARCHAR" property="urid" />
+    <result column="case_no" jdbcType="VARCHAR" property="caseNo" />
+    <result column="case_remark" jdbcType="VARCHAR" property="caseRemark" />
+    <result column="project_id" jdbcType="VARCHAR" property="projectId" />
+    <result column="check_return_message" jdbcType="CHAR" property="checkReturnMessage" />
+    <result column="check_database_info" jdbcType="CHAR" property="checkDatabaseInfo" />
+    <result column="case_class_id" jdbcType="VARCHAR" property="caseClassId" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    urid, case_no, case_remark, project_id, check_return_message, check_database_info, 
+    case_class_id, `status`, create_time, update_time, create_user, update_user, version
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rotten_case
+    where urid = #{urid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from rotten_case
+    where urid = #{urid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenCase" useGeneratedKeys="true">
+    insert into rotten_case (case_no, case_remark, project_id, 
+      check_return_message, check_database_info, case_class_id, 
+      `status`, create_time, update_time, 
+      create_user, update_user, version
+      )
+    values (#{caseNo,jdbcType=VARCHAR}, #{caseRemark,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, 
+      #{checkReturnMessage,jdbcType=CHAR}, #{checkDatabaseInfo,jdbcType=CHAR}, #{caseClassId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenCase" useGeneratedKeys="true">
+    insert into rotten_case
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseNo != null">
+        case_no,
+      </if>
+      <if test="caseRemark != null">
+        case_remark,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="checkReturnMessage != null">
+        check_return_message,
+      </if>
+      <if test="checkDatabaseInfo != null">
+        check_database_info,
+      </if>
+      <if test="caseClassId != null">
+        case_class_id,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseRemark != null">
+        #{caseRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="checkReturnMessage != null">
+        #{checkReturnMessage,jdbcType=CHAR},
+      </if>
+      <if test="checkDatabaseInfo != null">
+        #{checkDatabaseInfo,jdbcType=CHAR},
+      </if>
+      <if test="caseClassId != null">
+        #{caseClassId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenCase">
+    update rotten_case
+    <set>
+      <if test="caseNo != null">
+        case_no = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="caseRemark != null">
+        case_remark = #{caseRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="checkReturnMessage != null">
+        check_return_message = #{checkReturnMessage,jdbcType=CHAR},
+      </if>
+      <if test="checkDatabaseInfo != null">
+        check_database_info = #{checkDatabaseInfo,jdbcType=CHAR},
+      </if>
+      <if test="caseClassId != null">
+        case_class_id = #{caseClassId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where urid = #{urid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenCase">
+    update rotten_case
+    set case_no = #{caseNo,jdbcType=VARCHAR},
+      case_remark = #{caseRemark,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      check_return_message = #{checkReturnMessage,jdbcType=CHAR},
+      check_database_info = #{checkDatabaseInfo,jdbcType=CHAR},
+      case_class_id = #{caseClassId,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR}
+    where urid = #{urid,jdbcType=VARCHAR}
+  </update>
+</mapper>

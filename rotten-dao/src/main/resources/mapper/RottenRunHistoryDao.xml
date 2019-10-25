@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.murongyehua.rotten.dao.mapper.RottenRunHistoryDao">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenRunHistory">
+    <id column="urid" jdbcType="VARCHAR" property="urid" />
+    <result column="case_id" jdbcType="VARCHAR" property="caseId" />
+    <result column="result_info" jdbcType="VARCHAR" property="resultInfo" />
+    <result column="result_status" jdbcType="CHAR" property="resultStatus" />
+    <result column="run_time" jdbcType="TIMESTAMP" property="runTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    urid, case_id, result_info, result_status, run_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rotten_run_history
+    where urid = #{urid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from rotten_run_history
+    where urid = #{urid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenRunHistory" useGeneratedKeys="true">
+    insert into rotten_run_history (case_id, result_info, result_status, 
+      run_time)
+    values (#{caseId,jdbcType=VARCHAR}, #{resultInfo,jdbcType=VARCHAR}, #{resultStatus,jdbcType=CHAR}, 
+      #{runTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenRunHistory" useGeneratedKeys="true">
+    insert into rotten_run_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        case_id,
+      </if>
+      <if test="resultInfo != null">
+        result_info,
+      </if>
+      <if test="resultStatus != null">
+        result_status,
+      </if>
+      <if test="runTime != null">
+        run_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="caseId != null">
+        #{caseId,jdbcType=VARCHAR},
+      </if>
+      <if test="resultInfo != null">
+        #{resultInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="resultStatus != null">
+        #{resultStatus,jdbcType=CHAR},
+      </if>
+      <if test="runTime != null">
+        #{runTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenRunHistory">
+    update rotten_run_history
+    <set>
+      <if test="caseId != null">
+        case_id = #{caseId,jdbcType=VARCHAR},
+      </if>
+      <if test="resultInfo != null">
+        result_info = #{resultInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="resultStatus != null">
+        result_status = #{resultStatus,jdbcType=CHAR},
+      </if>
+      <if test="runTime != null">
+        run_time = #{runTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where urid = #{urid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenRunHistory">
+    update rotten_run_history
+    set case_id = #{caseId,jdbcType=VARCHAR},
+      result_info = #{resultInfo,jdbcType=VARCHAR},
+      result_status = #{resultStatus,jdbcType=CHAR},
+      run_time = #{runTime,jdbcType=TIMESTAMP}
+    where urid = #{urid,jdbcType=VARCHAR}
+  </update>
+</mapper>
