@@ -1,17 +1,17 @@
 package com.murongyehua.rotten.dao.mapper;
 
-import com.murongyehua.rotten.dao.po.RottenProject;
+import com.murongyehua.rotten.dao.po.ProjectPO;
 
 public interface RottenProjectDao {
     int deleteByPrimaryKey(String urid);
 
-    int insert(RottenProject record);
+    int insert(ProjectPO record);
 
-    int insertSelective(RottenProject record);
+    int insertSelective(ProjectPO record);
 
-    RottenProject selectByPrimaryKey(String urid);
+    ProjectPO selectByPrimaryKey(String urid);
 
-    int updateByPrimaryKeySelective(RottenProject record);
+    int updateByPrimaryKeySelective(ProjectPO record);
 
-    int updateByPrimaryKey(RottenProject record);
+    int updateByPrimaryKey(ProjectPO record);
 }

@@ -1,17 +1,17 @@
 package com.murongyehua.rotten.dao.mapper;
 
-import com.murongyehua.rotten.dao.po.RottenDbCheck;
+import com.murongyehua.rotten.dao.po.DbCheckPO;
 
 public interface RottenDbCheckDao {
     int deleteByPrimaryKey(String urid);
 
-    int insert(RottenDbCheck record);
+    int insert(DbCheckPO record);
 
-    int insertSelective(RottenDbCheck record);
+    int insertSelective(DbCheckPO record);
 
-    RottenDbCheck selectByPrimaryKey(String urid);
+    DbCheckPO selectByPrimaryKey(String urid);
 
-    int updateByPrimaryKeySelective(RottenDbCheck record);
+    int updateByPrimaryKeySelective(DbCheckPO record);
 
-    int updateByPrimaryKey(RottenDbCheck record);
+    int updateByPrimaryKey(DbCheckPO record);
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.murongyehua.rotten.dao.mapper.RottenMessageCheckDao">
-  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenMessageCheck">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.MessageCheckPO">
     <id column="urid" jdbcType="VARCHAR" property="urid" />
     <result column="case_id" jdbcType="VARCHAR" property="caseId" />
     <result column="field_check" jdbcType="VARCHAR" property="fieldCheck" />
@@ -24,7 +24,7 @@
     delete from rotten_message_check
     where urid = #{urid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenMessageCheck" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.MessageCheckPO" useGeneratedKeys="true">
     insert into rotten_message_check (case_id, field_check, create_time, 
       update_time, create_user, update_user, 
       version)
@@ -32,7 +32,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, 
       #{version,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenMessageCheck" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.MessageCheckPO" useGeneratedKeys="true">
     insert into rotten_message_check
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="caseId != null">
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenMessageCheck">
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.MessageCheckPO">
     update rotten_message_check
     <set>
       <if test="caseId != null">
@@ -108,7 +108,7 @@
     </set>
     where urid = #{urid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenMessageCheck">
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.MessageCheckPO">
     update rotten_message_check
     set case_id = #{caseId,jdbcType=VARCHAR},
       field_check = #{fieldCheck,jdbcType=VARCHAR},

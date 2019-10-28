@@ -1,17 +1,17 @@
 package com.murongyehua.rotten.dao.mapper;
 
-import com.murongyehua.rotten.dao.po.RottenCaseClass;
+import com.murongyehua.rotten.dao.po.CaseClassPO;
 
 public interface RottenCaseClassDao {
     int deleteByPrimaryKey(String urid);
 
-    int insert(RottenCaseClass record);
+    int insert(CaseClassPO record);
 
-    int insertSelective(RottenCaseClass record);
+    int insertSelective(CaseClassPO record);
 
-    RottenCaseClass selectByPrimaryKey(String urid);
+    CaseClassPO selectByPrimaryKey(String urid);
 
-    int updateByPrimaryKeySelective(RottenCaseClass record);
+    int updateByPrimaryKeySelective(CaseClassPO record);
 
-    int updateByPrimaryKey(RottenCaseClass record);
+    int updateByPrimaryKey(CaseClassPO record);
 }

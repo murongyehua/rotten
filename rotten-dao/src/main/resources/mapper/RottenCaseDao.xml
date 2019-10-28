@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.murongyehua.rotten.dao.mapper.RottenCaseDao">
-  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenCase">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.CasePO">
     <id column="urid" jdbcType="VARCHAR" property="urid" />
     <result column="case_no" jdbcType="VARCHAR" property="caseNo" />
     <result column="case_remark" jdbcType="VARCHAR" property="caseRemark" />
@@ -30,7 +30,7 @@
     delete from rotten_case
     where urid = #{urid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenCase" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.CasePO" useGeneratedKeys="true">
     insert into rotten_case (case_no, case_remark, project_id, 
       check_return_message, check_database_info, case_class_id, 
       `status`, create_time, update_time, 
@@ -42,7 +42,7 @@
       #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenCase" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.CasePO" useGeneratedKeys="true">
     insert into rotten_case
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="caseNo != null">
@@ -121,7 +121,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenCase">
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.CasePO">
     update rotten_case
     <set>
       <if test="caseNo != null">
@@ -163,7 +163,7 @@
     </set>
     where urid = #{urid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenCase">
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.CasePO">
     update rotten_case
     set case_no = #{caseNo,jdbcType=VARCHAR},
       case_remark = #{caseRemark,jdbcType=VARCHAR},

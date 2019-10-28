@@ -1,17 +1,23 @@
 package com.murongyehua.rotten.dao.mapper;
 
-import com.murongyehua.rotten.dao.po.RottenUser;
+import com.murongyehua.rotten.dao.po.UserPO;
+
+import java.util.List;
 
 public interface RottenUserDao {
     int deleteByPrimaryKey(String urid);
 
-    int insert(RottenUser record);
+    int insert(UserPO record);
 
-    int insertSelective(RottenUser record);
+    int insertSelective(UserPO record);
 
-    RottenUser selectByPrimaryKey(String urid);
+    UserPO selectByPrimaryKey(String urid);
 
-    int updateByPrimaryKeySelective(RottenUser record);
+    List<UserPO> selectBySelective(UserPO userPO);
 
-    int updateByPrimaryKey(RottenUser record);
+    int isUserExist(UserPO userPO);
+
+    int updateByPrimaryKeySelective(UserPO record);
+
+    int updateByPrimaryKey(UserPO record);
 }

@@ -4,21 +4,27 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * rotten_right
+ * rotten_case_class
  * @author 
  */
-public class RottenRight implements Serializable {
+public class CaseClassPO implements Serializable {
     private String urid;
 
-    private String userId;
-
     private String projectId;
+
+    private String className;
+
+    private String chassNo;
+
+    private String classRemark;
 
     private Date createTime;
 
     private Date updateTime;
 
     private String createUser;
+
+    private String updateUser;
 
     private Integer version;
 
@@ -32,20 +38,36 @@ public class RottenRight implements Serializable {
         this.urid = urid;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getProjectId() {
         return projectId;
     }
 
     public void setProjectId(String projectId) {
         this.projectId = projectId;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getChassNo() {
+        return chassNo;
+    }
+
+    public void setChassNo(String chassNo) {
+        this.chassNo = chassNo;
+    }
+
+    public String getClassRemark() {
+        return classRemark;
+    }
+
+    public void setClassRemark(String classRemark) {
+        this.classRemark = classRemark;
     }
 
     public Date getCreateTime() {
@@ -70,6 +92,14 @@ public class RottenRight implements Serializable {
 
     public void setCreateUser(String createUser) {
         this.createUser = createUser;
+    }
+
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
     public Integer getVersion() {

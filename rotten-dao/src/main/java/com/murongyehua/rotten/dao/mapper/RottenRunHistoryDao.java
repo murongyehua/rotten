@@ -1,17 +1,17 @@
 package com.murongyehua.rotten.dao.mapper;
 
-import com.murongyehua.rotten.dao.po.RottenRunHistory;
+import com.murongyehua.rotten.dao.po.RunHistoryPO;
 
 public interface RottenRunHistoryDao {
     int deleteByPrimaryKey(String urid);
 
-    int insert(RottenRunHistory record);
+    int insert(RunHistoryPO record);
 
-    int insertSelective(RottenRunHistory record);
+    int insertSelective(RunHistoryPO record);
 
-    RottenRunHistory selectByPrimaryKey(String urid);
+    RunHistoryPO selectByPrimaryKey(String urid);
 
-    int updateByPrimaryKeySelective(RottenRunHistory record);
+    int updateByPrimaryKeySelective(RunHistoryPO record);
 
-    int updateByPrimaryKey(RottenRunHistory record);
+    int updateByPrimaryKey(RunHistoryPO record);
 }

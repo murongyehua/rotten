@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.murongyehua.rotten.dao.mapper.RottenCaseClassDao">
-  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenCaseClass">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.CaseClassPO">
     <id column="urid" jdbcType="VARCHAR" property="urid" />
     <result column="project_id" jdbcType="VARCHAR" property="projectId" />
     <result column="class_name" jdbcType="VARCHAR" property="className" />
@@ -27,7 +27,7 @@
     delete from rotten_case_class
     where urid = #{urid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenCaseClass" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.CaseClassPO" useGeneratedKeys="true">
     insert into rotten_case_class (project_id, class_name, chass_no, 
       class_remark, create_time, update_time, 
       create_user, update_user, version
@@ -37,7 +37,7 @@
       #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenCaseClass" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.CaseClassPO" useGeneratedKeys="true">
     insert into rotten_case_class
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="projectId != null">
@@ -98,7 +98,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenCaseClass">
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.CaseClassPO">
     update rotten_case_class
     <set>
       <if test="projectId != null">
@@ -131,7 +131,7 @@
     </set>
     where urid = #{urid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenCaseClass">
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.CaseClassPO">
     update rotten_case_class
     set project_id = #{projectId,jdbcType=VARCHAR},
       class_name = #{className,jdbcType=VARCHAR},

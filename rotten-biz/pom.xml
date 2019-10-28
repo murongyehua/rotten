@@ -11,5 +11,16 @@
 
     <artifactId>rotten-biz</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.murongyehua.rotten</groupId>
+            <artifactId>rotten-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.murongyehua.rotten</groupId>
+            <artifactId>rotten-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

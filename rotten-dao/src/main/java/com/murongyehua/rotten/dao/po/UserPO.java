@@ -4,25 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * rotten_datasource
+ * rotten_user
  * @author 
  */
-public class RottenDatasource implements Serializable {
+public class UserPO implements Serializable {
     private String urid;
-
-    private String datasourceCode;
-
-    private String datasourceName;
-
-    private String datasourceType;
 
     private String username;
 
+    private String nickname;
+
     private String password;
 
-    private String address;
+    private String type;
 
-    private Integer port;
+    private String status;
 
     private Date createTime;
 
@@ -44,36 +40,20 @@ public class RottenDatasource implements Serializable {
         this.urid = urid;
     }
 
-    public String getDatasourceCode() {
-        return datasourceCode;
-    }
-
-    public void setDatasourceCode(String datasourceCode) {
-        this.datasourceCode = datasourceCode;
-    }
-
-    public String getDatasourceName() {
-        return datasourceName;
-    }
-
-    public void setDatasourceName(String datasourceName) {
-        this.datasourceName = datasourceName;
-    }
-
-    public String getDatasourceType() {
-        return datasourceType;
-    }
-
-    public void setDatasourceType(String datasourceType) {
-        this.datasourceType = datasourceType;
-    }
-
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {
@@ -84,20 +64,20 @@ public class RottenDatasource implements Serializable {
         this.password = password;
     }
 
-    public String getAddress() {
-        return address;
+    public String getType() {
+        return type;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Integer getPort() {
-        return port;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPort(Integer port) {
-        this.port = port;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getCreateTime() {

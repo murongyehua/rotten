@@ -4,25 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * rotten_project
+ * rotten_right
  * @author 
  */
-public class RottenProject implements Serializable {
+public class RightPO implements Serializable {
     private String urid;
 
-    private String projectName;
+    private String userId;
 
-    private String projectCode;
-
-    private String remark;
+    private String projectId;
 
     private Date createTime;
 
     private Date updateTime;
 
     private String createUser;
-
-    private String updateUser;
 
     private Integer version;
 
@@ -36,28 +32,20 @@ public class RottenProject implements Serializable {
         this.urid = urid;
     }
 
-    public String getProjectName() {
-        return projectName;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getProjectCode() {
-        return projectCode;
+    public String getProjectId() {
+        return projectId;
     }
 
-    public void setProjectCode(String projectCode) {
-        this.projectCode = projectCode;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 
     public Date getCreateTime() {
@@ -82,14 +70,6 @@ public class RottenProject implements Serializable {
 
     public void setCreateUser(String createUser) {
         this.createUser = createUser;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
     }
 
     public Integer getVersion() {

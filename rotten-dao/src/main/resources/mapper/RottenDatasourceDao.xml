@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.murongyehua.rotten.dao.mapper.RottenDatasourceDao">
-  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenDatasource">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.DatasourcePO">
     <id column="urid" jdbcType="VARCHAR" property="urid" />
     <result column="datasource_code" jdbcType="VARCHAR" property="datasourceCode" />
     <result column="datasource_name" jdbcType="VARCHAR" property="datasourceName" />
@@ -30,7 +30,7 @@
     delete from rotten_datasource
     where urid = #{urid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenDatasource" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.DatasourcePO" useGeneratedKeys="true">
     insert into rotten_datasource (datasource_code, datasource_name, datasource_type, 
       username, `password`, address, 
       port, create_time, update_time, 
@@ -42,7 +42,7 @@
       #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenDatasource" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.DatasourcePO" useGeneratedKeys="true">
     insert into rotten_datasource
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="datasourceCode != null">
@@ -121,7 +121,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenDatasource">
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.DatasourcePO">
     update rotten_datasource
     <set>
       <if test="datasourceCode != null">
@@ -163,7 +163,7 @@
     </set>
     where urid = #{urid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenDatasource">
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.DatasourcePO">
     update rotten_datasource
     set datasource_code = #{datasourceCode,jdbcType=VARCHAR},
       datasource_name = #{datasourceName,jdbcType=VARCHAR},

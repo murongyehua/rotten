@@ -4,21 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * rotten_user
+ * rotten_project
  * @author 
  */
-public class RottenUser implements Serializable {
+public class ProjectPO implements Serializable {
     private String urid;
 
-    private String username;
+    private String projectName;
 
-    private String nickname;
+    private String projectCode;
 
-    private String password;
-
-    private String type;
-
-    private String status;
+    private String remark;
 
     private Date createTime;
 
@@ -40,44 +36,28 @@ public class RottenUser implements Serializable {
         this.urid = urid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getProjectCode() {
+        return projectCode;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setProjectCode(String projectCode) {
+        this.projectCode = projectCode;
     }
 
-    public String getPassword() {
-        return password;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getCreateTime() {

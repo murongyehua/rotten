@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * rotten_case_class
+ * rotten_db_check
  * @author 
  */
-public class RottenCaseClass implements Serializable {
+public class DbCheckPO implements Serializable {
     private String urid;
 
-    private String projectId;
+    private String caseId;
 
-    private String className;
+    private String datasourceId;
 
-    private String chassNo;
+    private String tableName;
 
-    private String classRemark;
+    private String filedCheck;
 
     private Date createTime;
 
@@ -38,36 +38,36 @@ public class RottenCaseClass implements Serializable {
         this.urid = urid;
     }
 
-    public String getProjectId() {
-        return projectId;
+    public String getCaseId() {
+        return caseId;
     }
 
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
+    public void setCaseId(String caseId) {
+        this.caseId = caseId;
     }
 
-    public String getClassName() {
-        return className;
+    public String getDatasourceId() {
+        return datasourceId;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setDatasourceId(String datasourceId) {
+        this.datasourceId = datasourceId;
     }
 
-    public String getChassNo() {
-        return chassNo;
+    public String getTableName() {
+        return tableName;
     }
 
-    public void setChassNo(String chassNo) {
-        this.chassNo = chassNo;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
-    public String getClassRemark() {
-        return classRemark;
+    public String getFiledCheck() {
+        return filedCheck;
     }
 
-    public void setClassRemark(String classRemark) {
-        this.classRemark = classRemark;
+    public void setFiledCheck(String filedCheck) {
+        this.filedCheck = filedCheck;
     }
 
     public Date getCreateTime() {

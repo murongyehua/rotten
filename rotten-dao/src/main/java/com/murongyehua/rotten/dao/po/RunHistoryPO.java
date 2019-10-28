@@ -7,7 +7,7 @@ import java.util.Date;
  * rotten_run_history
  * @author 
  */
-public class RottenRunHistory implements Serializable {
+public class RunHistoryPO implements Serializable {
     private String urid;
 
     private String caseId;

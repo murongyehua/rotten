@@ -7,7 +7,7 @@ import java.util.Date;
  * rotten_message_check
  * @author 
  */
-public class RottenMessageCheck implements Serializable {
+public class MessageCheckPO implements Serializable {
     private String urid;
 
     private String caseId;

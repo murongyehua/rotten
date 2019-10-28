@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.murongyehua.rotten.dao.mapper.RottenUserDao">
-  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.RottenUser">
+  <resultMap id="BaseResultMap" type="com.murongyehua.rotten.dao.po.UserPO">
     <id column="urid" jdbcType="VARCHAR" property="urid" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
@@ -24,21 +24,48 @@
     from rotten_user
     where urid = #{urid,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectBySelective" parameterType="com.murongyehua.rotten.dao.po.UserPO" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from rotten_user
+    <where>
+      <if test="#{username} != null and #{username} != ''">
+         username=#{username,jdbcType=VARCHAR}
+      </if>
+      <if test="#{nickname} != null and #{nickname} != ''">
+        and nickname=#{nickname,jdbcType=VARCHAR}
+      </if>
+      <if test="#{status} != null and #{status} != ''">
+        and status=#{status,jdbcType=VARCHAR}
+      </if>
+      <if test="#{type} != null and #{type} != ''">
+        and `type`=#{type,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+
+  <select id="isUserExist" resultType="java.lang.Integer" parameterType="com.murongyehua.rotten.dao.po.UserPO">
+    select count(*) from rotten_user
+    where nickname=#{nickname,jdbcType=VARCHAR}
+    or username=#{username,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from rotten_user
     where urid = #{urid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenUser" useGeneratedKeys="true">
-    insert into rotten_user (username, nickname, `password`, 
+  <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.UserPO" useGeneratedKeys="true">
+    insert into rotten_user (urid, username, nickname, `password`,
       `type`, `status`, create_time, 
       update_time, create_user, update_user, 
       version)
-    values (#{username,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{urid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{type,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, 
       #{version,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenUser" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.UserPO" useGeneratedKeys="true">
     insert into rotten_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="username != null">
@@ -105,7 +132,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.UserPO">
     update rotten_user
     <set>
       <if test="username != null">
@@ -141,7 +168,7 @@
     </set>
     where urid = #{urid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.RottenUser">
+  <update id="updateByPrimaryKey" parameterType="com.murongyehua.rotten.dao.po.UserPO">
     update rotten_user
     set username = #{username,jdbcType=VARCHAR},
       nickname = #{nickname,jdbcType=VARCHAR},

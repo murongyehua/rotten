@@ -1,17 +1,17 @@
 package com.murongyehua.rotten.dao.mapper;
 
-import com.murongyehua.rotten.dao.po.RottenMessageCheck;
+import com.murongyehua.rotten.dao.po.MessageCheckPO;
 
 public interface RottenMessageCheckDao {
     int deleteByPrimaryKey(String urid);
 
-    int insert(RottenMessageCheck record);
+    int insert(MessageCheckPO record);
 
-    int insertSelective(RottenMessageCheck record);
+    int insertSelective(MessageCheckPO record);
 
-    RottenMessageCheck selectByPrimaryKey(String urid);
+    MessageCheckPO selectByPrimaryKey(String urid);
 
-    int updateByPrimaryKeySelective(RottenMessageCheck record);
+    int updateByPrimaryKeySelective(MessageCheckPO record);
 
-    int updateByPrimaryKey(RottenMessageCheck record);
+    int updateByPrimaryKey(MessageCheckPO record);
 }

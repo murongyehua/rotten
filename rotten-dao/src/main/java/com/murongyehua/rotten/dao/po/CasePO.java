@@ -7,7 +7,7 @@ import java.util.Date;
  * rotten_case
  * @author 
  */
-public class RottenCase implements Serializable {
+public class CasePO implements Serializable {
     private String urid;
 
     private String caseNo;
