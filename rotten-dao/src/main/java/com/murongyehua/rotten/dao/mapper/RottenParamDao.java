@@ -6,9 +6,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface RottenParamDao {
-    long countByExample(RottenParamExample example);
-
-    int deleteByExample(RottenParamExample example);
 
     int deleteByPrimaryKey(String urid);
 
@@ -16,13 +13,7 @@ public interface RottenParamDao {
 
     int insertSelective(RottenParam record);
 
-    List<RottenParam> selectByExample(RottenParamExample example);
-
     RottenParam selectByPrimaryKey(String urid);
-
-    int updateByExampleSelective(@Param("record") RottenParam record, @Param("example") RottenParamExample example);
-
-    int updateByExample(@Param("record") RottenParam record, @Param("example") RottenParamExample example);
 
     int updateByPrimaryKeySelective(RottenParam record);
 

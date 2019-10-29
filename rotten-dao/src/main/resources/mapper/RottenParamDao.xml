@@ -68,20 +68,6 @@
   <sql id="Base_Column_List">
     urid, fieldName, fieldValue, case_id
   </sql>
-  <select id="selectByExample" parameterType="generator.RottenParamExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from rotten_param
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -91,12 +77,6 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from rotten_param
     where urid = #{urid,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="generator.RottenParamExample">
-    delete from rotten_param
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
   </delete>
   <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RottenParam" useGeneratedKeys="true">
     insert into rotten_param (fieldName, fieldValue, case_id
@@ -129,42 +109,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="generator.RottenParamExample" resultType="java.lang.Long">
-    select count(*) from rotten_param
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update rotten_param
-    <set>
-      <if test="record.urid != null">
-        urid = #{record.urid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fieldname != null">
-        fieldName = #{record.fieldname,jdbcType=VARCHAR},
-      </if>
-      <if test="record.fieldvalue != null">
-        fieldValue = #{record.fieldvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="record.caseId != null">
-        case_id = #{record.caseId,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update rotten_param
-    set urid = #{record.urid,jdbcType=VARCHAR},
-      fieldName = #{record.fieldname,jdbcType=VARCHAR},
-      fieldValue = #{record.fieldvalue,jdbcType=VARCHAR},
-      case_id = #{record.caseId,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.murongyehua.rotten.dao.po.RottenParam">
     update rotten_param
     <set>

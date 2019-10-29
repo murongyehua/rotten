@@ -30,16 +30,19 @@
     <include refid="Base_Column_List" />
     from rotten_user
     <where>
-      <if test="#{username} != null and #{username} != ''">
+      <if test="username != null and username != ''">
          username=#{username,jdbcType=VARCHAR}
       </if>
-      <if test="#{nickname} != null and #{nickname} != ''">
+      <if test="nickname != null and nickname != ''">
         and nickname=#{nickname,jdbcType=VARCHAR}
       </if>
-      <if test="#{status} != null and #{status} != ''">
+      <if test="password != null and password != ''">
+        and `password`=#{password,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null and status != ''">
         and status=#{status,jdbcType=VARCHAR}
       </if>
-      <if test="#{type} != null and #{type} != ''">
+      <if test="type != null and type != ''">
         and `type`=#{type,jdbcType=VARCHAR}
       </if>
     </where>

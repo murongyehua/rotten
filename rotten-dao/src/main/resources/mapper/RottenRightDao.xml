@@ -19,15 +19,31 @@
     from rotten_right
     where urid = #{urid,jdbcType=VARCHAR}
   </select>
+  <select id="selectBySelective" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from rotten_right
+    <where>
+      <if test="urid != null and urid != ''">
+        urid=#{urid}
+      </if>
+      <if test="userId != null and userId != ''">
+        user_id=#{userId}
+      </if>
+      <if test="projectId != null and project != ''">
+        project_id=#{projectId}
+      </if>
+    </where>
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from rotten_right
     where urid = #{urid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" keyColumn="urid" keyProperty="urid" parameterType="com.murongyehua.rotten.dao.po.RightPO" useGeneratedKeys="true">
-    insert into rotten_right (user_id, project_id, create_time, 
+    insert into rotten_right (urid, user_id, project_id, create_time,
       update_time, create_user, version
       )
-    values (#{userId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{urid,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}
       )
   </insert>

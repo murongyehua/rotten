@@ -35,4 +35,6 @@ public class UserDTO implements Serializable {
 
     private Integer version;
 
+    private String currentUserId;
+
 }

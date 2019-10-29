@@ -23,4 +23,11 @@ public interface UserService {
      */
     ResultContext getUserBySomething(UserDTO userDTO);
 
+    /**
+     * 用户登录
+     * @param userDTO
+     * @return
+     */
+    ResultContext login(UserDTO userDTO);
+
 }
